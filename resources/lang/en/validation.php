@@ -106,6 +106,9 @@ return [
         'phone'=>[
             'required'=>'A valid phone is required',
         ],
+        'gender'=>[
+            'required'=>'Enter a valid gender'
+        ],
     ],
 
     /*
