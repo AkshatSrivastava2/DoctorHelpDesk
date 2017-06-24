@@ -17,8 +17,7 @@ class CreatePatientsTable extends Migration
             $table->increments('id');
             $table->string('name',100);
             $table->integer('age');
-            $table->integer('phone');
-            $table->integer('doctor_id');
+            $table->text('phone');
             $table->timestamps();
         });
     }
