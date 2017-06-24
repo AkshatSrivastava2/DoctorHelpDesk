@@ -61,7 +61,18 @@ class DoctorController extends Controller
 
         $doctor->fill($doctorUpdate)->save();
 
+        Session::flash('flash_message', 'Details added successfully!');
+
         return back();
 
+    }
+    public function destroy($id)
+    {
+        Doctor::find($id)->delete();
+
+
+        //Session::flash('flash_message', 'Doctor deleted!');
+
+        return redirect('/');
     }
 }

@@ -4,6 +4,12 @@
 
 	<div class="container">
     <div class="row">
+
+    @if(Session::has('flash_message'))
+    <div class="alert alert-success">
+        {{ Session::get('flash_message') }}
+    </div>
+	@endif
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
                 <div class="panel-heading">Doctor's Info</div>
@@ -71,11 +77,25 @@
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">
-                                    Add 
+                                    Update 
                                 </button>
                             </div>
                         </div>
                     </form>
+                    <div class="panel panel-default">
+     				<div class="panel-heading">
+                    <form action="doctor/delete/{{$doctor->id}}" method="POST"> 
+                        {{ csrf_field() }} 
+
+                        {{ method_field('DELETE') }}
+
+                     <button class="delete button button-rounded button-raised button-caution" type="submit" style="color: red;">
+                        Delete Your Account
+                    </button>
+                    </form>
+
+        			</div>
+   					</div>
                 </div>
             </div>
         </div>
@@ -83,5 +103,7 @@
 </div>
 
     </div>
+
+    
 </div>
 @endsection
