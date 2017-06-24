@@ -2,20 +2,21 @@
 
 @section('content')
 
-<div class="container">
+	<div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">Add A New Doctor</div>
+                <div class="panel-heading">Doctor's Info</div>
                 <div class="panel-body">
-                    <form class="form-horizontal" role="form" method="POST" action="/doctor/store">
+                    <form class="form-horizontal" role="form" method="POST" action="/doctor/{{$doctor->id}}/update">
                         {{ csrf_field() }}
+                         <input type="hidden" name="_method" value="PATCH">
 
                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
                             <label for="name" class="col-md-4 control-label">Name</label>
 
                             <div class="col-md-6">
-                                <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus>
+                                <input id="name" type="text" class="form-control" name="name" value="{{ $doctor->name }}" required autofocus>
 
                                 @if ($errors->has('name'))
                                     <span class="help-block">
@@ -29,7 +30,7 @@
                             <label for="qualification" class="col-md-4 control-label">Qualifications</label>
 
                             <div class="col-md-6">
-                                <input id="text" type="text" class="form-control" name="qualification" value="{{ old('qualification') }}" required>
+                                <input id="text" type="text" class="form-control" name="qualification" value="{{ $doctor->qualification }}" required>
 
                                 @if ($errors->has('qualification'))
                                     <span class="help-block">
@@ -43,7 +44,7 @@
                             <label for="phone" class="col-md-4 control-label">Phone Number</label>
 
                             <div class="col-md-6">
-                                <input id="text" type="text" class="form-control" name="phone" value="{{ old('phone') }}" required>
+                                <input id="text" type="text" class="form-control" name="phone" value="{{ $doctor->phone }}" required>
 
                                 @if ($errors->has('phone'))
                                     <span class="help-block">
@@ -57,7 +58,7 @@
                             <label for="gender" class="col-md-4 control-label">Gender : Male or Female</label>
 
                             <div class="col-md-6">
-                                <input id="text" type="text" class="form-control" name="gender" value="{{ old('gender') }}" required>
+                                <input id="text" type="text" class="form-control" name="gender" value="{{ $doctor->gender }}" required>
 
                                 @if ($errors->has('gender'))
                                     <span class="help-block">
@@ -81,30 +82,6 @@
     </div>
 </div>
 
-<div class="container">
-    <div class="panel panel-info">
-    <div class="panel-heading">
-        Your Patients are :
-    </div>
-    @if(count($doctors))
-    @foreach($doctors as $doctor)
-
-    <div>
-        <div class="panel-body">
-        <a href="/doctor/{{$doctor->id}}">
-            {{ $doctor->name }} 
-            </a>registered on {{$doctor->created_at->diffForHumans()}}
-
-        </div>
-    </div>
-    @endforeach
-    @else
-    <div>
-        <div class="panel-body">
-        	No Doctors Available Be the first One !!
-        </div>
-    </div>
-    @endif
     </div>
 </div>
 @endsection

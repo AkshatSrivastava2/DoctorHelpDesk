@@ -109,6 +109,9 @@ return [
         'gender'=>[
             'required'=>'Enter a valid gender'
         ],
+        'qualification'=>[
+            'required'=>'Enter a valid qualification'
+        ],
     ],
 
     /*

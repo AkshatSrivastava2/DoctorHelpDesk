@@ -26,3 +26,7 @@ Route::get('/patient/show','PatientController@show');
 Route::get('/doctor/show','DoctorController@create');
 
 Route::post('/doctor/store','DoctorController@store');
+
+Route::get('/doctor/{id}','DoctorController@show');
+
+Route::patch('/doctor/{id}/update','DoctorController@update');

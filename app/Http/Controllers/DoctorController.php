@@ -37,4 +37,31 @@ class DoctorController extends Controller
 
     	return back();
     }
+    public function show($id)
+    {
+        $doctor=Doctor::find($id);
+
+        return view('doctors.show',compact('doctor'));
+    }
+
+    public function update(Request $request,$id)
+    {
+
+        $this->validate(request(),[
+            'name'=>'required|min:6',
+            'qualification'=>'required',
+            'phone'=>'required',
+            'gender'=>'required'
+
+        ]);
+
+        $doctor=Doctor::find($id);
+
+        $doctorUpdate=request()->all();
+
+        $doctor->fill($doctorUpdate)->save();
+
+        return back();
+
+    }
 }
