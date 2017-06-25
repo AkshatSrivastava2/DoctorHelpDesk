@@ -8,6 +8,8 @@ use App\Patient;
 
 use Session;
 
+use App\History;
+
 class PatientController extends Controller
 {
 
@@ -51,6 +53,20 @@ class PatientController extends Controller
         $patients=Patient::all();
 
         return view('patients.show',compact('patients'));
+    }
+
+    public function search(Request $request)
+    {
+        $search=Patient::all()->where('phone',request('search'))->first();
+        if($search)
+        {
+            $history=History::all()->where('patient_id',$search->id);
+
+            return view('history.show',compact('history'));
+        }
+        Session::flash('flash_message', 'Phone Number not registered');
+
+        return redirect('/home');
     }	
 
 }

@@ -36,3 +36,5 @@ Route::get('doctor/{id}/delete','DoctorController@destroy');
 Route::get('/patient/{id}','HistoryController@show');
 
 Route::post('/patient/{patient}/add','HistoryController@update');
+
+Route::post('/search','PatientController@search');
