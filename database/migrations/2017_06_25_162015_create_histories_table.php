@@ -14,7 +14,8 @@ class CreateHistoriesTable extends Migration
             $table->integer('patient_id');
             $table->text('history');
             $table->integer('fees_paid');
-            
+            $table->integer('doctor_id');
+            $table->timestamps();
         });
     }
 

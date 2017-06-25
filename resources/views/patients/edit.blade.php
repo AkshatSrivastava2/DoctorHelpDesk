@@ -1,7 +1,24 @@
 @extends('layouts.app')
 
 @section('content')
+    <div style="float: center;">
+         <button data-toggle="collapse" data-target="#list" >Doctor's List and Id </button>
 
+        <div id="list" class="collapse" class="panel panel-default">
+        @if(count($doctors))
+            @foreach($doctors as $doctor)
+            <div class="panel-body">
+                {{ $doctor->name }} has an Id : {{ $doctor->id }}
+                <br>
+            </div>
+            @endforeach
+        @else
+            <div>
+                No Doctors Registered
+            </div>
+        @endif
+    </div> 
+    </div>
     <div class="container">
     <div class="row">
 
@@ -40,6 +57,20 @@
                                 @if ($errors->has('fee'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('fee') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group{{ $errors->has('id') ? ' has-error' : '' }}">
+                            <label for="id" class="col-md-4 control-label">Doctor ID</label>
+
+                            <div class="col-md-6">
+                                <input id="id" type="text" class="form-control" name="id" placeholder="Check the toggle for the ID" required>
+
+                                @if ($errors->has('id'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('id') }}</strong>
                                     </span>
                                 @endif
                             </div>

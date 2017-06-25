@@ -118,6 +118,9 @@ return [
         'fee'=>[
             'required'=>'Cannot be left blank'
         ],
+        'id'=>[
+            'required'=>'Enter a valid Doctor Id'
+        ],
     ],
 
     /*

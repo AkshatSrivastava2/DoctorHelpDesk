@@ -8,6 +8,7 @@ use App\Patient;
 
 use App\User;
 
+use App\History;
 class Doctor extends Model
 {
     //
@@ -21,5 +22,10 @@ class Doctor extends Model
     public function user()
     {
     	return $this->belongsTo(User::class);
+    }
+
+    public function history()
+    {
+        return $this->hasMany(History::class);
     }
 }

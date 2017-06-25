@@ -22,9 +22,9 @@ class Patient extends Model
     	return $this->hasMany(History::class);
     }
 
-    public function addHistory($history,$fees_paid)
+    public function addHistory($history,$fees_paid,$doctor_id)
     {
-        $this->history()->create(compact('history','fees_paid'));
+        $this->history()->create(compact('history','fees_paid','doctor_id'));
     }
 }
 

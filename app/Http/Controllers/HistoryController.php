@@ -8,6 +8,8 @@ use App\Patient;
 
 use App\History;
 
+use App\Doctor;
+
 class HistoryController extends Controller
 {
     //
@@ -20,9 +22,10 @@ class HistoryController extends Controller
         $this->validate(request(),[
             'history'=>'required|min:6',
             'fee'=>'required',
+            'id'=>'required'
         ]);
         
-        $patient->addHistory(request('history'),request('fee'));
+        $patient->addHistory(request('history'),request('fee'),request('id'));
 
         return back();
     }
@@ -32,7 +35,9 @@ class HistoryController extends Controller
 
         $history=History::all()->where('patient_id',$id);
 
-        return view('patients.edit',compact('patient','history'));
+        $doctors=Doctor::all();
+
+        return view('patients.edit',compact('patient','history','doctors'));
     }
 
 }
