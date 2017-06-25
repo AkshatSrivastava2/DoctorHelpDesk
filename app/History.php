@@ -6,10 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 use App\Patient;
 
-class Doctor extends Model
+class History extends Model
 {
     //
-    protected $fillable=['name','qualification','phone','gender'];
+    protected $fillable=['history','fees_paid','patient_id'];
     
     public function patient()
     {

@@ -16,8 +16,8 @@
 
     <div>
         <div class="panel-body">
-        <a></a>
-            {{ $patient->name }} on {{$patient->created_at->diffForHumans()}}
+        <a href="/patient/{{$patient->id}}">
+            {{ $patient->name }}</a> on {{$patient->created_at->diffForHumans()}}
         </div>
     </div>
     @endforeach

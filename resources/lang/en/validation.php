@@ -112,6 +112,12 @@ return [
         'qualification'=>[
             'required'=>'Enter a valid qualification'
         ],
+        'history'=>[
+            'required'=>'Cannot be left blank'
+        ],
+        'fee'=>[
+            'required'=>'Cannot be left blank'
+        ],
     ],
 
     /*
