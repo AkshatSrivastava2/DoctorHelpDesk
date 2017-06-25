@@ -82,20 +82,7 @@
                             </div>
                         </div>
                     </form>
-                    <div class="panel panel-default">
-     				<div class="panel-heading">
-                    <form action="doctor/delete/{{$doctor->id}}" method="POST"> 
-                        {{ csrf_field() }} 
-
-                        {{ method_field('DELETE') }}
-
-                     <button class="delete button button-rounded button-raised button-caution" type="submit" style="color: red;">
-                        Delete Your Account
-                    </button>
-                    </form>
-
-        			</div>
-   					</div>
+                    <a href="/doctor/{{$doctor->id}}/delete" style="color: red;">Say Bye Bye to Your Account !!</a>
                 </div>
             </div>
         </div>

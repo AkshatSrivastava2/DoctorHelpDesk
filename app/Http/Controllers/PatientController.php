@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Patient;
 
+use Session;
+
 class PatientController extends Controller
 {
 
@@ -30,7 +32,9 @@ class PatientController extends Controller
             'gender'=>request('gender')
     	]);
 
-    	return back();
+        Session::flash('flash_message', 'Details added successfully!');
+
+    	return redirect('/patient/show');
 	}
 
     public function show()

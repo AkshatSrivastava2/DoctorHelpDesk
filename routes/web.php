@@ -31,4 +31,4 @@ Route::get('/doctor/{id}','DoctorController@show');
 
 Route::patch('/doctor/{id}/update','DoctorController@update');
 
-Route::delete('doctor/delete/{id}','DoctorController@destroy');
+Route::get('doctor/{id}/delete','DoctorController@destroy');

@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Doctor;
 
+use Session;
+
 class DoctorController extends Controller
 {
     //

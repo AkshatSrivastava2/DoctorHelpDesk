@@ -84,7 +84,7 @@
 <div class="container">
     <div class="panel panel-info">
     <div class="panel-heading">
-        Your Patients are :
+        Your Registered Doctors are :
     </div>
     @if(count($doctors))
     @foreach($doctors as $doctor)
