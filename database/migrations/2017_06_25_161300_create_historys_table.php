@@ -16,9 +16,6 @@ class CreateHistorysTable extends Migration
         //
         Schema::create('historys', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('patient_id');
-            $table->text('history');
-            $table->integer('fees_paid');
             $table->timestamps();
         });
     }

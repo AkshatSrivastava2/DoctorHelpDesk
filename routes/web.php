@@ -33,6 +33,6 @@ Route::patch('/doctor/{id}/update','DoctorController@update');
 
 Route::get('doctor/{id}/delete','DoctorController@destroy');
 
-Route::get('/patient/{id}','HistoryController@edit');
+Route::get('/patient/{id}','HistoryController@show');
 
 Route::post('/patient/{patient}/add','HistoryController@update');

@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Patient;
 
+use App\History;
+
 class HistoryController extends Controller
 {
     //
@@ -20,11 +22,13 @@ class HistoryController extends Controller
 
         return back();
     }
-    public function edit($id)
+    public function show($id)
     {
         $patient=Patient::find($id);
 
-        return view('patients.edit',compact('patient'));
+        $history=History::all()->where('patient_id',$id);
+
+        return view('patients.edit',compact('patient','history'));
     }
 
 }
