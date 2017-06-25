@@ -11,6 +11,10 @@ use App\History;
 class HistoryController extends Controller
 {
     //
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function update(Patient $patient)
     {
         $this->validate(request(),[

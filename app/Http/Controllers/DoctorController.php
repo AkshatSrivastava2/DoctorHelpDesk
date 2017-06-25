@@ -34,7 +34,8 @@ class DoctorController extends Controller
     		'name'=>request('name'),
     		'qualification'=>request('qualification'),
     		'phone'=>request('phone'),
-            'gender'=>request('gender')
+            'gender'=>request('gender'),
+            'user_id'=>auth()->id()
     	]);
 
     	return back();

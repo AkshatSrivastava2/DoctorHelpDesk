@@ -20,6 +20,7 @@ class CreatePatientsTable extends Migration
             $table->text('phone');
             $table->string('gender');
             $table->timestamps();
+            
         });
     }
 

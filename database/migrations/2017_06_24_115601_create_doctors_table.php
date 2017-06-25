@@ -20,6 +20,7 @@ class CreateDoctorsTable extends Migration
             $table->text('phone');
             $table->string('gender');
             $table->timestamps();
+            $table->integer('user_id');
         });
     }
 

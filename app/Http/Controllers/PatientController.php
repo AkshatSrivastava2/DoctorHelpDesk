@@ -25,6 +25,15 @@ class PatientController extends Controller
             'gender'=>'required'
 
     	]);
+
+        $existPatient=Patient::all()->where('phone',request('phone'))->first();
+
+        if($existPatient)
+        {
+            Session::flash('flash_message', 'Phone Number already available!');
+            
+            return back(); 
+        }
     	Patient::create([
     		'name'=>request('name'),
     		'age'=>request('age'),
